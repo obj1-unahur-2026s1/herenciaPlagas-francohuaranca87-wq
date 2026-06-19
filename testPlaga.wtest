@@ -1,0 +1,16 @@
+import elementos.*
+import plagas.*
+
+describe "test plagas" {
+    const cucas1 = new Cucarachas(poblacion=10, pesoPromedio=8)
+    const hogar1 = new Hogar(mugre=10, confort=21)
+
+    test "el hogar1 es bueno si no recibe un ataque"{
+        assert.that(hogar1.esBueno())
+    }
+
+    test "si hogar1 recibe un ataque de cucas1, entonces ya no es bueno"{
+        cucas1.atacar(hogar1)
+        assert.notThat(hogar1.esBueno())
+    }
+}
